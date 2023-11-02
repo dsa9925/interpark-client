@@ -1,4 +1,6 @@
 import Header from "./components/Header";
+import Recommend from "./components/Recommend";
+import Visual from "./components/Visual";
 
 function App() {
   return (
@@ -7,7 +9,10 @@ function App() {
       <Header />
 
       {/* <!-- 메인 영역 --> */}
-      <div className="main"></div>
+      <div className="main">
+        <Visual />
+        <Recommend />
+      </div>
 
       {/* <!-- 하단 영역 --> */}
       <footer className="footer"></footer>

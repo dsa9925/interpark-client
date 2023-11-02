@@ -40,7 +40,7 @@
   height: 38px;
   /* a 태그는 inline 이다. 그래서 너비, 높이 못줘요. */
   display: block;
-  background-image: url("../images/logo.svg");
+  background-image: url("http://localhost:3000/images/logo.svg");
 }
 
 .header-search {
@@ -78,7 +78,7 @@
   height: 45px;
   border: none;
   background-color: transparent;
-  background-image: url("../images/btn_search.svg");
+  background-image: url("http://localhost:3000/images/btn_search.svg");
   background-repeat: no-repeat;
   background-position: center;
   font-size: 0;
@@ -147,14 +147,14 @@
 width, height, margin, padding이 원활하지 않앋.
 그래서 많은 사람들이 display를 별도로 준다.
 */
-.icon-hot::after{
+.icon-hot::after {
   content: "";
   position: relative;
   width: 23px;
   height: 15px;
   display: block;
   margin-left: 6px;
-  background: url("../images/badge_hot.svg") no-repeat center;
+  background: url("http://localhost:3000/images/badge_hot.svg") no-repeat center;
 }
 
 .header-cate li a img {
@@ -170,7 +170,7 @@ width, height, margin, padding이 원활하지 않앋.
 }
 
 /* 라인넣기 */
-.header-today-menu::before{
+.header-today-menu::before {
   content: "";
   position: absolute;
   top: 1;
