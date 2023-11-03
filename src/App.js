@@ -1,6 +1,8 @@
 import Header from "./components/Header";
 import Recommend from "./components/Recommend";
 import Visual from "./components/Visual";
+import Tour from "./components/Tour";
+import Ticket from "./components/Ticket";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <div className="main">
         <Visual />
         <Recommend />
+        <Tour />
+        <Ticket />
       </div>
 
       {/* <!-- 하단 영역 --> */}

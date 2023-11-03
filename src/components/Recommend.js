@@ -1,5 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { Swiper, SwiperSlide } from "swiper/react";
+
+import { Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 import "../styles/recommend.css";
 import "../styles/common.css";
 import { useRef } from "react";
@@ -20,7 +25,7 @@ function Recommend() {
         </div>
 
         <div class="recommend-main">
-          <div class="recommend-cate">
+          <div class="recommend-category">
             <ul class="recommend-list">
               <li>
                 <button class="recommend-cate-bt recommend-cate-bt-active">
@@ -48,9 +53,14 @@ function Recommend() {
             <Swiper
               slidesPerView={4}
               spaceBetween={27}
-              SlidesPerGruop={4}
+              slidesPerGroup={4}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
+              }}
+              modules={[Navigation]}
+              navigation={{
+                nextEl: ".recommend-slide-wrap .slide-next-bt",
+                prevEl: ".recommend-slide-wrap .slide-prev-bt",
               }}
               className="recommend-slide"
             >
@@ -404,21 +414,11 @@ function Recommend() {
               </SwiperSlide>
             </Swiper>
 
-            <button
-              className="slide-prev-bt"
-              onClick={() => {
-                swiperRef.current.slidePrev();
-              }}
-            >
+            <button class="slide-prev-bt">
               <img src="images/slider_arrow.svg" alt="" />
             </button>
-            <button
-              className="slide-next-bt"
-              onClick={() => {
-                swiperRef.current.slideNext();
-              }}
-            >
-              <img src="images/slider2_arrow.svg" alt="" />
+            <button class="slide-next-bt">
+              <img src="images/slider_arrow.svg" alt="" />
             </button>
           </div>
         </div>

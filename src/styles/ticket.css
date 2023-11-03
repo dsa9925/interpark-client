@@ -1,18 +1,16 @@
-.recommend {
+.ticket {
   position: relative;
   padding-bottom: 90px;
 }
-
-.recommend-inner {
+.ticket-inner {
   position: relative;
   width: 1280px;
   margin: 0 auto;
 }
-
-.recommend-header {
+.ticket-header {
   position: relative;
 }
-.recommend-title {
+.ticket-title {
   position: relative;
   margin-bottom: 10px;
   font-size: 2.8rem;
@@ -20,38 +18,33 @@
   color: #000;
   text-align: center;
 }
-.recommend-txt {
+.ticket-txt {
   position: relative;
   display: block;
   font-size: 1.8rem;
   color: #a7a9a7;
   text-align: center;
 }
-.recommend-main {
+.ticket-main {
   position: relative;
   padding: 25px 0;
 }
-.recommend-cate {
+.ticket-cate {
   position: relative;
   display: flex;
   justify-content: center;
 }
-.recommend-list {
+.ticket-list {
   position: relative;
   display: flex;
   gap: 4px;
-  justify-content: center;
   align-items: center;
 }
-.recommend-list li {
-  position: relative;
-}
-.recommend-cate-bt {
+.ticket-cate-bt {
   position: relative;
   display: block;
   padding: 0 20px;
   border: 1px solid #e5e5e5;
-  background-color: #fff;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 42px;
@@ -59,43 +52,40 @@
   cursor: pointer;
   border-radius: 44px;
 }
-.recommend-cate-bt-active {
+.ticket-cate-bt-active {
   border: 1px solid transparent !important;
   background-color: #333 !important;
   font-weight: 700 !important;
   color: #fff !important;
 }
-
-.recommend-slide-wrap {
+.ticket-slide-wrap {
   position: relative;
-  height: 425px;
+  height: 520px;
   margin-top: 23px;
 }
 
-.recommend-slide-item {
+.ticket-slide-item {
   position: relative;
-  height: 425px;
-  border: 1px solid #e8e8e8;
+  height: 520px;
   overflow: hidden;
-  background-color: #f7f7f7;
   border-radius: 10px;
 }
 
-.recommend-link {
+.ticket-link {
   position: relative;
   width: 100%;
   height: 100%;
   display: block;
 }
 
-.recommend-img {
+.ticket-img {
   position: relative;
-  width: 100%;
-  height: 310px;
+  width: 320px;
+  height: 400px;
   overflow: hidden;
 }
 
-.recommend-img img {
+.ticket-img img {
   /* position: absolute;
   left: 50%;
   top: 50%;
@@ -104,45 +94,46 @@
   height: 100%;
   object-fit: cover;
 }
-.recommend-info {
+.ticket-info {
   position: relative;
   height: calc(100% - 310px);
-  padding: 22px 20px;
+  padding: 22px 15px;
 }
 
-.recommend-good-list {
+.ticket-good-list {
   position: relative;
 }
-.recommend-good-list li {
+.ticket-info li {
   position: relative;
   margin-bottom: 10px;
 }
 
-.recommend-good-info-price {
+.ticket-good-info-place {
   position: relative;
 
   /* 1줄 말줄임 */
   overflow: hidden;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 400;
-  color: #111;
+  color: #666;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
-.recommend-good-info-price b {
+.ticket-good-info-price {
   position: relative;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ef3e43;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 0;
+  color: #999;
 }
-.recommend-good-info-price em {
+.ticket-good-info-desc em {
   position: relative;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-style: normal;
   font-weight: 700;
 }
 
-.recommend-good-info-desc {
+.ticket-good-info-desc {
   position: relative;
   display: -webkit-box;
 
@@ -156,6 +147,6 @@
   -webkit-box-orient: vertical;
 }
 
-.recommend-footer {
+.ticket-footer {
   position: relative;
 }
