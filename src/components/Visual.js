@@ -6,14 +6,29 @@ import "swiper/css";
 import "../styles/visual.css";
 import { useEffect, useRef, useState } from "react";
 
+//  axios 모듈(js.파일) 가져오기
+import axios from "axios";
+
 function Visual() {
   // js 코드 자리
   // JSX 에 작성된 html 태그를 React 에서 참조
   // 1. swiper 슬라이드 태그를 참조한다.
   const swiperRef = useRef();
 
-  // 외부 데이터 연동 ( fetch 활용)
+  //  외부 데이터 연동 (axios 활용)
+  const axiosGetData = function () {
+    axios
+      .get("visual.json")
+      .then(function (res) {
+        console.log(res.data);
+        makeVisualSlide(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
+  // 외부 데이터 연동 ( fetch 활용)
   const fetchGetData = () => {
     fetch("visual.json")
       .then((res) => res.json())
@@ -67,7 +82,8 @@ function Visual() {
   useEffect(() => {
     // 랜더링 될때
     //  visual.json 데이터 불러들이기 기능실행
-    fetchGetData();
+    axiosGetData();
+    // fetchGetData();
     return () => {
       // 삭제될때 (Clean Up 함수)
     };

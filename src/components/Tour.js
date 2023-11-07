@@ -7,42 +7,68 @@ import "swiper/css/navigation";
 
 import "../styles/tour.css";
 import "../styles/common.css";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function Tour() {
   // js 코드 자리
   // JSX 의 요소를 React 에서 참조
   const swiperRef = useRef();
+  const [htmlTag, setHtmlTag] = useState([]);
+
+  const getJsonData = () => {
+    fetch("tour.json")
+      .then((response) => {
+        console.log("tour : ", response);
+        return response.json();
+      })
+      .then((result) => {
+        console.log("result : ", result);
+        let arr = [];
+        for (let i = 0; i < result.total; i++) {
+          const obj = result["tour_" + (i + 1)];
+          arr[i] = obj;
+        }
+        console.log(arr);
+        setHtmlTag(arr);
+      })
+      .catch((error) => {
+        console.log("error : ", error);
+      });
+  };
+
+  useEffect(() => {
+    getJsonData();
+  }, []);
 
   return (
-    <section class="tour">
-      <div class="tour-inner">
-        <div class="tour-header">
-          <h2 class="tour-title">투어 특가</h2>
-          <span class="tour-txt">해외여행은 인터파크다</span>
+    <section className="tour">
+      <div className="tour-inner">
+        <div className="tour-header">
+          <h2 className="tour-title">투어 특가</h2>
+          <span className="tour-txt">해외여행은 인터파크다</span>
         </div>
 
-        <div class="tour-main">
-          <div class="tour-cate">
-            <ul class="tour-list">
+        <div className="tour-main">
+          <div className="tour-cate">
+            <ul className="tour-list">
               <li>
-                <button class="tour-cate-bt tour-cate-bt-active">
+                <button className="tour-cate-bt tour-cate-bt-active">
                   명절이면 품절
                 </button>
               </li>
               <li>
-                <button class="tour-cate-bt">패키지</button>
+                <button className="tour-cate-bt">패키지</button>
               </li>
               <li>
-                <button class="tour-cate-bt">국내숙소</button>
+                <button className="tour-cate-bt">국내숙소</button>
               </li>
               <li>
-                <button class="tour-cate-bt">해외숙소</button>
+                <button className="tour-cate-bt">해외숙소</button>
               </li>
             </ul>
           </div>
 
-          <div class="tour-slide-wrap">
+          <div className="tour-slide-wrap">
             <Swiper
               slidesPerView={3}
               spaceBetween={27}
@@ -57,305 +83,53 @@ function Tour() {
               }}
               className="tour-slide"
             >
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
+              {htmlTag.map((item, index) => {
+                return (
+                  <SwiperSlide key={index}>
+                    <div className="tour-slide-item">
+                      <a href={item.url} className="tour-link">
+                        <div className="tour-img">
+                          <img src={item.image} alt={item.desc} />
+                        </div>
+                        <div className="tour-info">
+                          <ul>
+                            <li>
+                              <span className="tour-good-info-desc">
+                                {item.name}
+                              </span>
+                            </li>
+
+                            <li>
+                              <span className="tour-good-info-place">
+                                {item.place}
+                              </span>
+                            </li>
+
+                            <li>
+                              <span className="tour-good-info-price">
+                                <em>{item.price}</em>
+                                원~
+                              </span>
+                            </li>
+                          </ul>
+                        </div>
+                      </a>
                     </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
-
-              <SwiperSlide>
-                <div class="tour-slide-item">
-                  <a href="#" class="tour-link">
-                    <div class="tour-img">
-                      <img src="images/r1.jpg" alt="" />
-                    </div>
-                    <div class="tour-info">
-                      <ul>
-                        <li>
-                          <span class="tour-good-info-desc">
-                            파리15구, 위치&가성비
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-place">
-                            호텔 투어리즘 애비뉴
-                          </span>
-                        </li>
-
-                        <li>
-                          <span class="tour-good-info-price">
-                            <em>277,820</em>
-                            원~
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                  </a>
-                </div>
-              </SwiperSlide>
+                  </SwiperSlide>
+                );
+              })}
             </Swiper>
 
-            <button class="slide-prev-bt">
+            <button className="slide-prev-bt">
               <img src="images/slider_arrow.svg" alt="" />
             </button>
-            <button class="slide-next-bt">
+            <button className="slide-next-bt">
               <img src="images/slider2_arrow.svg" alt="" />
             </button>
           </div>
         </div>
 
-        <div class="tour-footer"></div>
+        <div className="tour-footer"></div>
       </div>
     </section>
   );
