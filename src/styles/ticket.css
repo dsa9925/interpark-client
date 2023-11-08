@@ -69,7 +69,6 @@
   position: relative;
   height: 520px;
   overflow: hidden;
-  border-radius: 10px;
 }
 
 .ticket-link {
@@ -84,6 +83,7 @@
   width: 320px;
   height: 400px;
   overflow: hidden;
+  border-radius: 10px;
 }
 
 .ticket-img img {
@@ -150,4 +150,12 @@
 
 .ticket-footer {
   position: relative;
+}
+
+.ticket-prev {
+  top: 43%;
+}
+
+.ticket-next {
+  top: 43%;
 }

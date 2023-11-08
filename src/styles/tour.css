@@ -20,6 +20,7 @@
 }
 .tour-txt {
   position: relative;
+  position: relative;
   display: block;
   font-size: 1.8rem;
   color: #a7a9a7;
@@ -58,7 +59,6 @@
   background-color: #333 !important;
   font-weight: 700 !important;
   color: #fff !important;
-  width: 130px;
 }
 .tour-slide-wrap {
   position: relative;
@@ -126,7 +126,6 @@
 .tour-good-info-place {
   position: relative;
   display: inline-block;
-  margin: 0.4rem 0;
   width: 100%;
   white-space: nowrap;
   overflow: hidden;

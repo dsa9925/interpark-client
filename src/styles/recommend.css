@@ -33,14 +33,13 @@
 }
 .recommend-cate {
   position: relative;
-  display: flex;
-  justify-content: center;
+  display: block;
 }
 .recommend-list {
   position: relative;
   display: flex;
-  gap: 4px;
   justify-content: center;
+  gap: 4px;
   align-items: center;
 }
 .recommend-list li {
