@@ -9,7 +9,7 @@
 .slide-prev-bt {
   position: absolute;
   top: 50%;
-  left: 0;
+  left: 10px;
   width: 48px;
   height: 48px;
   border: 1px solid #e3e2e3;
@@ -31,7 +31,7 @@
 .slide-next-bt {
   position: absolute;
   top: 50%;
-  right: 0;
+  right: 10px;
   width: 48px;
   height: 48px;
   border: 1px solid #e3e2e3;
